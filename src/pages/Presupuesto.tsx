@@ -7,6 +7,7 @@ const html = `
     <div class="page-header-title">Presupuesto General</div>
     <div class="page-header-sub">Cata de Vinos 2026 – Mar del Plata</div>
   </div>
+  <div class="table-scroll">
   <table class="presup">
     <thead><tr><th>Concepto</th><th>Tipo</th><th>Costo</th><th>Descripción</th></tr></thead>
     <tbody>
@@ -34,6 +35,7 @@ const html = `
       <tr><td><strong>Stand de bebidas</strong></td><td><span class="tipo-cv">CV</span></td><td class="monto">$500.000</td><td>Diversas bebidas y tragos para quienes no consuman vino.</td></tr>
     </tbody>
   </table>
+  </div>
   <div style="margin-top:6px;font-size:8pt;color:#888">
     <span style="margin-right:16px"><span class="tipo-cf">CF</span> Costo Fijo</span>
     <span><span class="tipo-cv">CV</span> Costo Variable</span>

@@ -18,10 +18,10 @@ export function GanttRow({ task, group, index, isEditing, onDelete, onUpdateResp
   return (
     <div className="flex w-full group hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0 min-h-[3rem]">
       {/* Frozen Left Column */}
-      <div className="w-[560px] shrink-0 sticky left-0 z-20 bg-white group-hover:bg-slate-50 border-r border-slate-200 flex transition-colors">
+      <div className="shrink-0 sticky left-0 z-20 bg-white group-hover:bg-slate-50 border-r border-slate-200 flex transition-colors" style={{ width: 'var(--frozen-w)' }}>
         {/* Acción */}
-        <div className="w-[280px] shrink-0 p-3 flex items-center border-r border-slate-100">
-          <div className="flex items-start space-x-2 pr-2 flex-1">
+        <div className="flex-1 min-w-0 p-3 flex items-center border-r border-slate-100 md:border-r md:w-[280px] md:flex-none md:shrink-0">
+          <div className="flex items-start space-x-2 pr-1 md:pr-2 flex-1 min-w-0">
             {isEditing && (
               <button
                 onClick={onDelete}
@@ -32,13 +32,24 @@ export function GanttRow({ task, group, index, isEditing, onDelete, onUpdateResp
               </button>
             )}
             <div className={`w-2 h-2 rounded-full shrink-0 mt-1.5 ${colors.bg}`} />
-            <span className="text-sm text-slate-700 font-medium leading-snug break-words" title={task.name}>
-              {task.name}
-            </span>
+            <div className="min-w-0 flex-1">
+              <span className="block text-sm text-slate-700 font-medium leading-snug break-words" title={task.name}>
+                {task.name}
+              </span>
+              {/* F. Límite + responsable (solo mobile, donde se ocultan las columnas) */}
+              <div className="md:hidden mt-1 flex flex-wrap items-center gap-1.5">
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600 border border-slate-200 whitespace-nowrap">
+                  {task.fLimite}
+                </span>
+                {task.responsable && (
+                  <span className="text-[10px] text-slate-400 truncate">{task.responsable}</span>
+                )}
+              </div>
+            </div>
           </div>
         </div>
         {/* Responsable */}
-        <div className="w-[180px] shrink-0 p-3 flex items-center border-r border-slate-100">
+        <div className="hidden md:flex w-[180px] shrink-0 p-3 items-center border-r border-slate-100">
           {isEditing ? (
             <input
               type="text"
@@ -54,7 +65,7 @@ export function GanttRow({ task, group, index, isEditing, onDelete, onUpdateResp
           )}
         </div>
         {/* F. Límite */}
-        <div className="w-[100px] shrink-0 p-3 flex items-center justify-center">
+        <div className="hidden md:flex w-[100px] shrink-0 p-3 items-center justify-center">
           <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200 whitespace-nowrap">
             {task.fLimite}
           </span>

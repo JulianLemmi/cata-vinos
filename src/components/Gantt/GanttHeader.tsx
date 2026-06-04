@@ -5,14 +5,14 @@ export function GanttHeader() {
   return (
     <div className="flex sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
       {/* Frozen Left Column Header */}
-      <div className="w-[560px] shrink-0 sticky left-0 z-40 bg-white border-r border-slate-200 flex">
-        <div className="w-[280px] shrink-0 p-4 flex items-center border-r border-slate-100">
-          <span className="font-semibold text-slate-700 text-sm uppercase tracking-wider">Acción</span>
+      <div className="shrink-0 sticky left-0 z-40 bg-white border-r border-slate-200 flex" style={{ width: 'var(--frozen-w)' }}>
+        <div className="flex-1 min-w-0 p-3 md:p-4 flex items-center border-r border-slate-100">
+          <span className="font-semibold text-slate-700 text-xs md:text-sm uppercase tracking-wider">Acción</span>
         </div>
-        <div className="w-[180px] shrink-0 p-4 flex items-center border-r border-slate-100">
+        <div className="hidden md:flex w-[180px] shrink-0 p-4 items-center border-r border-slate-100">
           <span className="font-semibold text-slate-700 text-sm uppercase tracking-wider">Responsable</span>
         </div>
-        <div className="w-[100px] shrink-0 p-4 flex items-center justify-center">
+        <div className="hidden md:flex w-[100px] shrink-0 p-4 items-center justify-center">
           <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider">F. Límite</span>
         </div>
       </div>

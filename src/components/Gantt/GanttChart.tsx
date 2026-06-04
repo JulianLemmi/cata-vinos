@@ -4,8 +4,6 @@ import { GanttHeader } from './GanttHeader'
 import { GanttRow } from './GanttRow'
 import { Flag, Plus } from 'lucide-react'
 
-const FROZEN_WIDTH = 560
-
 interface GanttChartProps {
   groups: TaskGroup[]
   isEditing?: boolean
@@ -78,7 +76,7 @@ export const GanttChart = forwardRef<HTMLDivElement, GanttChartProps>(
             {/* Milestone Marker Line */}
             <div
               className="absolute top-0 bottom-0 z-10 pointer-events-none flex flex-col items-center"
-              style={{ left: `calc(${FROZEN_WIDTH}px + ${eventColumnIndex * 64}px + 32px)` }}
+              style={{ left: `calc(var(--frozen-w) + ${eventColumnIndex * 64}px + 32px)` }}
             >
               <div className="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full mt-2 shadow-sm flex items-center gap-1 z-40">
                 <Flag className="w-3 h-3" />
@@ -95,10 +93,10 @@ export const GanttChart = forwardRef<HTMLDivElement, GanttChartProps>(
                   <div key={group.id} className="flex flex-col w-full">
                     {/* Group Header */}
                     <div className={`flex w-full border-b border-slate-200 ${colors.light}`}>
-                      <div className={`w-[560px] shrink-0 sticky left-0 z-20 ${colors.light} border-r border-slate-200 p-3 flex items-center relative`}>
+                      <div className={`shrink-0 sticky left-0 z-20 ${colors.light} border-r border-slate-200 p-3 flex items-center relative`} style={{ width: 'var(--frozen-w)' }}>
                         <div className={`absolute left-0 top-0 bottom-0 w-1 ${colors.bg}`} />
-                        <Icon className={`w-5 h-5 mr-3 ml-2 ${colors.text}`} />
-                        <h3 className={`font-bold text-sm tracking-wide ${colors.text} flex-1`}>
+                        <Icon className={`w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 ml-2 shrink-0 ${colors.text}`} />
+                        <h3 className={`font-bold text-xs md:text-sm tracking-wide leading-tight ${colors.text} flex-1 min-w-0`}>
                           {group.name}
                         </h3>
                         {isEditing && (

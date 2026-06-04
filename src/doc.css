@@ -183,3 +183,64 @@ table.presup td { padding: 6px 10px; border-bottom: 1px solid #eee; vertical-ali
 .fp-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; font-size: 8pt; color: #444; }
 .fp-litem  { display: flex; align-items: center; gap: 5px; }
 .fp-lbox   { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
+
+/* ── TABLAS CON SCROLL HORIZONTAL ───────────────────────── */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 12px 0;
+  border-radius: 6px;
+}
+.table-scroll table.presup { margin: 0; min-width: 600px; }
+
+/* ── RESPONSIVE / MOBILE ────────────────────────────────── */
+@media (max-width: 768px) {
+  .doc-wrap { padding: 16px 12px 32px; }
+
+  /* Portada */
+  .portada {
+    min-height: auto;
+    padding: 40px 24px 36px;
+    border-radius: 6px;
+  }
+  .portada-logo    { font-size: 17pt; letter-spacing: 4px; }
+  .portada-tp      { margin-bottom: 28px; }
+  .portada-materia { font-size: 15pt; margin-bottom: 24px; }
+  .portada-evento  { font-size: 34pt; margin-bottom: 30px; }
+  .portada-icon    { font-size: 24pt; margin-left: 8px; }
+  .portada-grid    { grid-template-columns: 1fr 1fr; gap: 16px 18px; margin-bottom: 30px; }
+  .portada-field-value { font-size: 12pt; }
+  .portada-ciudad  { font-size: 7pt; letter-spacing: 2px; }
+
+  /* Páginas internas */
+  .doc-page { padding: 24px 18px; border-radius: 6px; }
+  .page-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 22px; }
+  .page-header-sub { text-align: left; }
+  .page-header-title { font-size: 17pt; }
+
+  .section { margin-bottom: 22px; }
+  .section-title h2 { font-size: 13pt; }
+  .fact-title { font-size: 13.5pt; }
+
+  /* Grids → 1 columna */
+  .data-grid,
+  .totales-grid,
+  .ingresos-grid,
+  .bodegas-grid,
+  .org-branches { grid-template-columns: 1fr; }
+  .personal-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Tablas */
+  table.presup { width: 100% !important; }
+
+  /* Resumen económico */
+  .total-card.main .tc-value { font-size: 22pt !important; }
+
+  /* Organigrama → vertical, sin líneas conectoras horizontales */
+  .org-top { padding: 14px 22px; }
+  .org-top-main { font-size: 13pt; }
+  .org-hbar { display: none; }
+  .org-branches { gap: 10px; margin-top: 0; }
+  .org-branch-vl { display: none; }
+  .conclusion-box { padding: 18px 18px; }
+}

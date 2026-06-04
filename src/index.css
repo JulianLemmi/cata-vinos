@@ -9,7 +9,15 @@
     font-family: 'Inter', sans-serif;
     @apply bg-gray-50 text-slate-800;
   }
+  html { -webkit-text-size-adjust: 100%; }
 }
+
+/* Ancho de la columna congelada del Gantt (responsive) */
+:root { --frozen-w: 560px; }
+@media (max-width: 768px) { :root { --frozen-w: 176px; } }
+
+/* Scroll táctil fluido en contenedores con overflow */
+.gantt-scroll, .table-scroll, main { -webkit-overflow-scrolling: touch; }
 
 .gantt-scroll::-webkit-scrollbar {
   height: 8px;

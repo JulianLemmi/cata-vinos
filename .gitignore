@@ -19,3 +19,6 @@ npm-debug.log*
 # Editor
 .vscode/
 .idea/
+
+# Capturas / herramienta local de preview visual
+_shots/

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Wine, FileText, CheckCircle2, Receipt, Network, Map, CalendarDays, ChevronRight } from 'lucide-react'
+import { Wine, FileText, CheckCircle2, Receipt, Network, Map, CalendarDays, ChevronRight, Menu, X } from 'lucide-react'
 import { Portada }       from './pages/Portada'
 import { Brief }         from './pages/Brief'
 import { Factibilidad }  from './pages/Factibilidad'
@@ -32,16 +32,43 @@ const PAGE_MAP: Record<PageId, JSX.Element> = {
 
 function App() {
   const [active, setActive] = useState<PageId>('portada')
+  const [menuOpen, setMenuOpen] = useState(false)
   const current = NAV.find(n => n.id === active)!
 
-  return (
-    <div className="flex h-screen overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+  const go = (id: PageId) => {
+    setActive(id)
+    setMenuOpen(false)
+  }
 
-      {/* ── SIDEBAR ── */}
-      <aside className="flex flex-col shrink-0 overflow-y-auto" style={{ width: 252, background: '#1e0608', borderRight: '1px solid #3a1020' }}>
+  return (
+    <div className="flex h-[100dvh] overflow-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+
+      {/* ── MOBILE BACKDROP ── */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40"
+          style={{ background: 'rgba(0,0,0,0.55)' }}
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* ── SIDEBAR / DRAWER ── */}
+      <aside
+        className={`flex flex-col shrink-0 overflow-y-auto fixed lg:static inset-y-0 left-0 z-50 w-[280px] lg:w-[252px] max-w-[85vw] transform transition-transform duration-300 ease-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
+        style={{ background: '#1e0608', borderRight: '1px solid #3a1020' }}
+      >
 
         {/* Logo */}
-        <div className="px-5 pt-7 pb-5" style={{ borderBottom: '1px solid #3a1020' }}>
+        <div className="px-5 pt-7 pb-5 relative" style={{ borderBottom: '1px solid #3a1020' }}>
+          {/* Close (mobile) */}
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="lg:hidden absolute top-4 right-4 p-1.5 rounded-md"
+            style={{ background: '#3a1020', color: '#f4b8c8' }}
+            aria-label="Cerrar menú"
+          >
+            <X className="w-4 h-4" />
+          </button>
           <div className="flex items-center gap-3 mb-3">
             <div className="flex items-center justify-center rounded-lg w-9 h-9" style={{ background: '#7a1c2e' }}>
               <Wine className="w-5 h-5 text-white" />
@@ -66,7 +93,7 @@ function App() {
             return (
               <button
                 key={id}
-                onClick={() => setActive(id as PageId)}
+                onClick={() => go(id as PageId)}
                 className="w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all"
                 style={{
                   background: isActive ? '#7a1c2e' : 'transparent',
@@ -101,11 +128,31 @@ function App() {
       </aside>
 
       {/* ── CONTENT ── */}
-      <main className="flex-1 overflow-auto" style={{ background: active === 'cronograma' ? '#f8fafc' : '#f5f5f0' }}>
+      <main className="flex-1 overflow-auto min-w-0" style={{ background: active === 'cronograma' ? '#f8fafc' : '#f5f5f0' }}>
 
-        {/* Top bar */}
+        {/* Mobile top bar */}
         <div
-          className="sticky top-0 z-20 flex items-center gap-3 px-6 py-3"
+          className="lg:hidden sticky top-0 z-30 flex items-center gap-3 px-4 py-3"
+          style={{ background: active === 'cronograma' ? '#f8fafc' : '#f5f5f0', borderBottom: '1px solid rgba(122,28,46,0.12)' }}
+        >
+          <button
+            data-menu-toggle
+            onClick={() => setMenuOpen(true)}
+            className="p-2 -ml-2 rounded-lg"
+            style={{ color: '#7a1c2e' }}
+            aria-label="Abrir menú"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+          <current.icon className="w-4 h-4 shrink-0" style={{ color: '#7a1c2e' }} />
+          <span className="truncate" style={{ fontFamily: "'Playfair Display', serif", color: '#7a1c2e', fontWeight: 700, fontSize: 15 }}>
+            {current.label}
+          </span>
+        </div>
+
+        {/* Desktop top bar */}
+        <div
+          className="hidden lg:flex sticky top-0 z-20 items-center gap-3 px-6 py-3"
           style={{ background: active === 'cronograma' ? '#f8fafc' : '#f5f5f0', borderBottom: '1px solid rgba(122,28,46,0.12)' }}
         >
           <current.icon className="w-4 h-4" style={{ color: '#7a1c2e' }} />
@@ -116,7 +163,7 @@ function App() {
         </div>
 
         {/* Page content */}
-        <div className={active === 'cronograma' ? 'p-6' : ''}>
+        <div className={active === 'cronograma' ? 'p-3 sm:p-6' : ''}>
           {PAGE_MAP[active]}
         </div>
       </main>
