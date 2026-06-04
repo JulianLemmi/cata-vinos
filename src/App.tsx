@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Wine, FileText, CheckCircle2, Receipt, Network, Map, CalendarDays, ChevronRight, Menu, X } from 'lucide-react'
+import { Wine, FileText, CheckCircle2, Receipt, Network, Map, CalendarDays, Palette, ChevronRight, Menu, X } from 'lucide-react'
 import { Portada }       from './pages/Portada'
 import { Brief }         from './pages/Brief'
 import { Factibilidad }  from './pages/Factibilidad'
@@ -7,8 +7,9 @@ import { Presupuesto }   from './pages/Presupuesto'
 import { Organigrama }   from './pages/Organigrama'
 import { Plano }         from './pages/Plano'
 import { Cronograma }    from './pages/Cronograma'
+import { Estetica }      from './pages/Estetica'
 
-type PageId = 'portada' | 'brief' | 'factibilidad' | 'presupuesto' | 'organigrama' | 'plano' | 'cronograma'
+type PageId = 'portada' | 'brief' | 'factibilidad' | 'presupuesto' | 'organigrama' | 'plano' | 'estetica' | 'cronograma'
 
 const NAV = [
   { id: 'portada',      label: 'Portada',           icon: Wine,        sub: 'Carátura del trabajo' },
@@ -17,6 +18,7 @@ const NAV = [
   { id: 'presupuesto',  label: 'Presupuesto',        icon: Receipt,     sub: 'Costos · Resumen económico' },
   { id: 'organigrama',  label: 'Organigrama',        icon: Network,     sub: 'Estructura del equipo' },
   { id: 'plano',        label: 'Plano del Evento',   icon: Map,         sub: 'Distribución del espacio' },
+  { id: 'estetica',     label: 'Estética',           icon: Palette,     sub: 'Concepto · Luz · Vestuario' },
   { id: 'cronograma',   label: 'Cronograma Gantt',   icon: CalendarDays,sub: 'Diagrama de planificación' },
 ] as const
 
@@ -27,6 +29,7 @@ const PAGE_MAP: Record<PageId, JSX.Element> = {
   presupuesto:  <Presupuesto />,
   organigrama:  <Organigrama />,
   plano:        <Plano />,
+  estetica:     <Estetica />,
   cronograma:   <Cronograma />,
 }
 
