@@ -3,6 +3,8 @@ import { Printer, ExternalLink } from 'lucide-react'
 
 const FLYER_W = 794
 const FLYER_H = 1123
+// Versión del afiche: subir este número al editar el flyer fuerza recarga (evita caché vieja)
+const FLYER_SRC = '/flyer-cata-vinos.html?v=3'
 
 export function Flyer() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -41,7 +43,7 @@ export function Flyer() {
           <Printer size={13} /> Imprimir
         </button>
         <a
-          href="/flyer-cata-vinos.html"
+          href={FLYER_SRC}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -60,7 +62,7 @@ export function Flyer() {
         <div style={{ width: FLYER_W * scale, height: FLYER_H * scale, flexShrink: 0 }}>
           <iframe
             ref={iframeRef}
-            src="/flyer-cata-vinos.html"
+            src={FLYER_SRC}
             title="Flyer — Cata de Vinos Argentinos 2026"
             scrolling="no"
             style={{
