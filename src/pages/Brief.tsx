@@ -141,22 +141,79 @@ const html = `
   <div class="section">
     <p style="font-weight:600;color:#7a1c2e;margin-bottom:8px">Bodegas participantes (stands de cata)</p>
     <hr class="divider" style="margin:0 0 10px">
-    <div class="bodegas-grid">
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Terrazas de los Andes</strong> <small style="color:#888">(con sommelier)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Nieto Senetiner</strong> <small style="color:#888">(con sommelier)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Durigutti Family Winemakers</strong> <small style="color:#888">(con sommelier)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Bodega Colomé</strong> <small style="color:#888">(con sommelier)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Bodega Chacra</strong> <small style="color:#888">(sommelier externo)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Bodega Noemía</strong> <small style="color:#888">(sommelier externo)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Finca Las Moras</strong> <small style="color:#888">(sommelier externo)</small></span></div>
-      <div class="bodega-item"><div class="bodega-dot"></div><span><strong>Norton</strong></span></div>
+    <div class="logo-wall">
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/terrazas.png" alt="Terrazas de los Andes" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">TA</span></div>
+        <div class="logo-name">Terrazas de los Andes</div><div class="logo-meta">con sommelier</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/nieto.png" alt="Nieto Senetiner" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">NS</span></div>
+        <div class="logo-name">Nieto Senetiner</div><div class="logo-meta">con sommelier</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/durigutti.png" alt="Durigutti Family Winemakers" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">D</span></div>
+        <div class="logo-name">Durigutti</div><div class="logo-meta">con sommelier</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/colome.png" alt="Bodega Colomé" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">C</span></div>
+        <div class="logo-name">Bodega Colomé</div><div class="logo-meta">con sommelier</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/chacra.png" alt="Bodega Chacra" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">CH</span></div>
+        <div class="logo-name">Bodega Chacra</div><div class="logo-meta">sommelier externo</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/noemia.png" alt="Bodega Noemía" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">N</span></div>
+        <div class="logo-name">Bodega Noemía</div><div class="logo-meta">sommelier externo</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/lasmoras.png" alt="Finca Las Moras" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">LM</span></div>
+        <div class="logo-name">Finca Las Moras</div><div class="logo-meta">sommelier externo</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/norton.png" alt="Norton" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">N</span></div>
+        <div class="logo-name">Norton</div>
+      </div>
     </div>
-    <p style="font-weight:600;color:#7a1c2e;margin:16px 0 8px">Sponsors del evento</p>
+    <p style="font-weight:600;color:#7a1c2e;margin:18px 0 8px">Sponsors / Bodegas que nos acompañan</p>
     <hr class="divider" style="margin:0 0 10px">
-    <div class="sponsor-grid">
-      <span class="sponsor-tag">Catena Zapata</span><span class="sponsor-tag">Trapiche</span><span class="sponsor-tag">Rutini Wines</span>
-      <span class="sponsor-tag">Luigi Bosca</span><span class="sponsor-tag">Salentein</span><span class="sponsor-tag">Zuccardi</span>
-      <span class="sponsor-tag">Valle de Uco</span><span class="sponsor-tag">El Enemigo Wines</span><span class="sponsor-tag">Lopez</span>
+    <div class="logo-wall">
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/catena.png" alt="Catena Zapata" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">CZ</span></div>
+        <div class="logo-name">Catena Zapata</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/trapiche.png" alt="Trapiche" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">T</span></div>
+        <div class="logo-name">Trapiche</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/rutini.png" alt="Rutini Wines" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">R</span></div>
+        <div class="logo-name">Rutini Wines</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/luigibosca.png" alt="Luigi Bosca" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">LB</span></div>
+        <div class="logo-name">Luigi Bosca</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/salentein.png" alt="Salentein" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">S</span></div>
+        <div class="logo-name">Salentein</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/zuccardi.png" alt="Zuccardi" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">Z</span></div>
+        <div class="logo-name">Zuccardi</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/valledeuco.png" alt="Valle de Uco" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">VU</span></div>
+        <div class="logo-name">Valle de Uco</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/elenemigo.png" alt="El Enemigo Wines" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">EE</span></div>
+        <div class="logo-name">El Enemigo Wines</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-frame"><img src="/logos/lopez.png" alt="Bodegas López" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">L</span></div>
+        <div class="logo-name">Bodegas López</div>
+      </div>
     </div>
   </div>
 </div>

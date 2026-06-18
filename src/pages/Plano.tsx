@@ -8,7 +8,33 @@ const svgAndLegend = `
   </div>
 
   <svg viewBox="0 0 880 555" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:6px;">
+    <defs>
+      <pattern id="fpGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M20 0H0V20" fill="none" stroke="#bcb0b2" stroke-width="0.5" opacity="0.5"/>
+      </pattern>
+      <pattern id="fpGridBold" width="100" height="100" patternUnits="userSpaceOnUse">
+        <path d="M100 0H0V100" fill="none" stroke="#a99ca0" stroke-width="0.8" opacity="0.55"/>
+      </pattern>
+      <marker id="arrPub" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" fill="#2563eb"/>
+      </marker>
+      <marker id="arrStaff" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" fill="#d97706"/>
+      </marker>
+      <symbol id="fpOutlet" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="7" fill="#fff" stroke="#1f2937" stroke-width="1.4"/>
+        <rect x="6.0" y="4.4" width="1.5" height="4.1" rx="0.6" fill="#1f2937"/>
+        <rect x="8.5" y="4.4" width="1.5" height="4.1" rx="0.6" fill="#1f2937"/>
+        <path d="M5.3 10.6h5.4" stroke="#1f2937" stroke-width="1.2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="fpPanel" viewBox="0 0 16 16">
+        <rect x="2" y="1.5" width="12" height="13" rx="1.6" fill="#fde68a" stroke="#b45309" stroke-width="1.4"/>
+        <path d="M9.2 3L5.8 8.6h2.4L6.8 13l4.4-5.6H8.7z" fill="#b45309"/>
+      </symbol>
+    </defs>
     <rect width="880" height="555" fill="#f0ece8" rx="6"/>
+    <rect width="880" height="555" fill="url(#fpGrid)"/>
+    <rect width="880" height="555" fill="url(#fpGridBold)"/>
     <rect x="8" y="8" width="426" height="292" fill="#c8a0a8" stroke="#7a5060" stroke-width="2" rx="4"/>
     <text x="220" y="185" text-anchor="middle" fill="#4a2030" font-size="15" font-weight="bold" font-family="Georgia,serif">Salón Principal</text>
     <rect x="96" y="14" width="238" height="50" fill="#8a5060" rx="4"/>
@@ -178,15 +204,15 @@ const svgAndLegend = `
 
     <!-- Acceso a la cocina desde el sur (SOLO PERSONAL) -->
     <rect x="686" y="152" width="32" height="8" fill="#efeae6"/>
-    <line x1="702" y1="182" x2="702" y2="162" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3"/>
-    <polygon points="697,166 707,166 702,157" fill="#64748b"/>
-    <text x="676" y="150" text-anchor="middle" fill="#475569" font-size="6" font-family="Arial,sans-serif" font-weight="700">PERSONAL</text>
+    <line x1="702" y1="182" x2="702" y2="162" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+    <polygon points="697,166 707,166 702,157" fill="#d97706"/>
+    <text x="676" y="150" text-anchor="middle" fill="#b45309" font-size="6" font-family="Arial,sans-serif" font-weight="700">PERSONAL</text>
 
     <!-- Acceso este: cocina → stand del exterior (servicio) -->
     <rect x="750" y="78" width="8" height="32" fill="#efeae6"/>
-    <line x1="744" y1="94" x2="772" y2="94" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3"/>
-    <polygon points="768,89 768,99 779,94" fill="#64748b"/>
-    <text x="731" y="150" text-anchor="middle" fill="#475569" font-size="6" font-family="Arial,sans-serif" font-weight="700">→ STAND</text>
+    <line x1="744" y1="94" x2="772" y2="94" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+    <polygon points="768,89 768,99 779,94" fill="#d97706"/>
+    <text x="731" y="150" text-anchor="middle" fill="#b45309" font-size="6" font-family="Arial,sans-serif" font-weight="700">→ STAND</text>
 
     <!-- Puerta de salida sur del Salón Secundario al exterior -->
     <rect x="595" y="296" width="42" height="9" fill="#efeae6"/>
@@ -225,6 +251,69 @@ const svgAndLegend = `
       <polygon points="820,414 832,414 826,426"/>
       <polygon points="714,452 714,464 702,458"/>
     </g>
+
+    <!-- ── ENCHUFES / TOMAS DE CORRIENTE ─────────────────── -->
+    <g>
+      <use href="#fpOutlet" x="37"  y="84"  width="11" height="11"/>
+      <use href="#fpOutlet" x="37"  y="136" width="11" height="11"/>
+      <use href="#fpOutlet" x="37"  y="188" width="11" height="11"/>
+      <use href="#fpOutlet" x="37"  y="240" width="11" height="11"/>
+      <use href="#fpOutlet" x="388" y="108" width="11" height="11"/>
+      <use href="#fpOutlet" x="388" y="160" width="11" height="11"/>
+      <use href="#fpOutlet" x="388" y="212" width="11" height="11"/>
+      <use href="#fpOutlet" x="388" y="256" width="11" height="11"/>
+      <use href="#fpOutlet" x="150" y="42"  width="11" height="11"/>
+      <use href="#fpOutlet" x="280" y="42"  width="11" height="11"/>
+      <use href="#fpOutlet" x="362" y="28"  width="11" height="11"/>
+      <use href="#fpOutlet" x="652" y="26"  width="11" height="11"/>
+      <use href="#fpOutlet" x="726" y="26"  width="11" height="11"/>
+      <use href="#fpOutlet" x="512" y="36"  width="11" height="11"/>
+      <use href="#fpOutlet" x="512" y="256" width="11" height="11"/>
+      <use href="#fpOutlet" x="738" y="256" width="11" height="11"/>
+      <use href="#fpOutlet" x="838" y="66"  width="11" height="11"/>
+      <use href="#fpOutlet" x="476" y="360" width="11" height="11"/>
+      <use href="#fpOutlet" x="646" y="360" width="11" height="11"/>
+    </g>
+
+    <!-- Tableros eléctricos -->
+    <g>
+      <use href="#fpPanel" x="736" y="11"  width="13" height="13"/>
+      <use href="#fpPanel" x="485" y="274" width="13" height="13"/>
+      <use href="#fpPanel" x="836" y="286" width="13" height="13"/>
+    </g>
+
+    <!-- ── FLUJO DEL PERSONAL (ámbar, distinto del público) ─ -->
+    <!-- Apertura de servicio Cocina → Lounge -->
+    <rect x="643" y="74" width="6" height="18" fill="#efeae6"/>
+    <g stroke="#d97706" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="7 4" fill="none" opacity="0.95">
+      <line x1="646" y1="83" x2="586" y2="83" marker-end="url(#arrStaff)"/>
+      <line x1="726" y1="164" x2="726" y2="226" marker-end="url(#arrStaff)"/>
+      <line x1="662" y1="158" x2="616" y2="206" marker-end="url(#arrStaff)"/>
+      <polyline points="832,306 832,422 670,440" marker-end="url(#arrStaff)"/>
+    </g>
+    <text x="556" y="80" text-anchor="end" fill="#b45309" font-size="7" font-family="Arial,sans-serif" font-weight="700">Servicio</text>
+
+    <!-- Flujo del personal en Salón Principal (sentido horario) -->
+    <g stroke="#d97706" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="7 4" fill="none" opacity="0.9">
+      <line x1="46"  y1="248" x2="46"  y2="104" marker-end="url(#arrStaff)"/>
+      <line x1="52"  y1="92"  x2="346" y2="92"  marker-end="url(#arrStaff)"/>
+      <line x1="393" y1="104" x2="393" y2="246" marker-end="url(#arrStaff)"/>
+      <line x1="346" y1="251" x2="62"  y2="251" marker-end="url(#arrStaff)"/>
+    </g>
+    <text x="200" y="110" text-anchor="middle" fill="#b45309" font-size="8" font-family="Arial,sans-serif" font-weight="700" opacity="0.9">↻ Personal (sentido horario)</text>
+
+    <!-- ── ESCALA GRÁFICA ────────────────────────────────── -->
+    <g font-family="Arial,sans-serif">
+      <rect x="692" y="514" width="172" height="29" fill="#ffffff" stroke="#9aa6b2" stroke-width="1" rx="4" opacity="0.96"/>
+      <text x="700" y="525" fill="#33424f" font-size="7" font-weight="700">Escala gráfica (aprox.)</text>
+      <rect x="700" y="530" width="48" height="6" fill="#33424f"/>
+      <rect x="748" y="530" width="48" height="6" fill="#ffffff" stroke="#33424f" stroke-width="1"/>
+      <rect x="796" y="530" width="48" height="6" fill="#33424f"/>
+      <text x="698" y="543" fill="#33424f" font-size="6.3">0</text>
+      <text x="744" y="543" fill="#33424f" font-size="6.3">5</text>
+      <text x="792" y="543" fill="#33424f" font-size="6.3">10</text>
+      <text x="846" y="543" fill="#33424f" font-size="6.3">15 m</text>
+    </g>
   </svg>
 
   <div class="fp-legend">
@@ -238,9 +327,11 @@ const svgAndLegend = `
     <div class="fp-litem"><div class="fp-lbox" style="background:#c8b888;border:1px solid #9a8850"></div> Stands gastronomía / tragos</div>
     <div class="fp-litem"><div class="fp-lbox" style="background:#334155"></div> Entrada principal / Recepción</div>
     <div class="fp-litem"><div class="fp-lbox" style="background:#1b7f3b"></div> Salida de emergencia</div>
-    <div class="fp-litem"><div class="fp-lbox" style="background:#2563eb;opacity:.5"></div> Pasillos · circulación / flujo de público</div>
+    <div class="fp-litem"><div class="fp-lbox" style="background:#2563eb;opacity:.5"></div> Circulación / flujo de público</div>
+    <div class="fp-litem"><div class="fp-lbox" style="background:#d97706"></div> Flujo del personal / servicio</div>
     <div class="fp-litem"><div class="fp-lbox" style="background:#d8c4cf;border:1px solid #b89aaa"></div> Baños (Mujeres / Hombres) · Oficina</div>
-    <div class="fp-litem"><div class="fp-lbox" style="background:#64748b"></div> Acceso de personal / servicio</div>
+    <div class="fp-litem"><div class="fp-lbox" style="background:#fff;border:1.5px solid #1f2937;border-radius:50%"></div> Enchufes / tomas de corriente</div>
+    <div class="fp-litem"><div class="fp-lbox" style="background:#fde68a;border:1px solid #b45309"></div> Tablero eléctrico</div>
   </div>
 </div>
 `

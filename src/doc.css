@@ -136,6 +136,42 @@ table.presup td { padding: 6px 10px; border-bottom: 1px solid #eee; vertical-ali
 .bodega-dot { width: 8px; height: 8px; border-radius: 50%; background: #7a1c2e; flex-shrink: 0; }
 .sponsor-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
 .sponsor-tag { background: #eef0f8; border: 1px solid #c0c8e0; border-radius: 20px; padding: 4px 12px; font-size: 8.5pt; color: #2a3a6a; font-weight: 500; }
+
+/* ── MURO DE LOGOS (bodegas / sponsors) ─────────────────── */
+.logo-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 12px;
+  margin: 12px 0 4px;
+}
+.logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+  padding: 14px 10px 12px;
+  border: 1px solid #e8d5d8;
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.logo-card:hover { border-color: #c9a84c; box-shadow: 0 3px 12px rgba(122,28,46,.10); }
+.logo-frame { width: 100%; height: 56px; display: flex; align-items: center; justify-content: center; }
+.logo-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.logo-fallback {
+  display: none;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#161616,#2a0a0a);
+  color: #c9a84c;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 14pt; letter-spacing: 1px;
+}
+.logo-card.no-logo .logo-fallback { display: flex; }
+.logo-name { font-size: 8.7pt; font-weight: 600; color: #1a1a1a; line-height: 1.2; }
+.logo-meta { font-size: 7pt; color: #a08496; text-transform: uppercase; letter-spacing: .5px; }
 .obs-box { background: #fffbf0; border: 1px solid #e0d0a0; border-radius: 6px; padding: 14px 16px; font-size: 9pt; color: #5a4a10; }
 .obs-box ul { list-style: none; padding: 0; }
 .obs-box ul li { padding: 3px 0 3px 16px; position: relative; }
@@ -276,6 +312,12 @@ table.presup td { padding: 6px 10px; border-bottom: 1px solid #eee; vertical-ali
   .org-branches { grid-template-columns: 1fr; }
   .personal-grid { grid-template-columns: 1fr 1fr; }
   .est-grid { grid-template-columns: 1fr; }
+
+  /* Muro de logos: 3 por fila en celu */
+  .logo-wall { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 9px; }
+  .logo-frame { height: 46px; }
+  .logo-fallback { width: 44px; height: 44px; font-size: 12pt; }
+  .logo-name { font-size: 8pt; }
   .est-hero-title, .est-hero-title small { font-size: 19pt; }
   .est-hero { padding: 22px 20px; }
   .est-swatch { min-width: calc(50% - 6px); }
