@@ -158,8 +158,8 @@ const html = `
         <div class="logo-frame"><img src="/logos/colome.png" alt="Bodega Colomé" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">C</span></div>
         <div class="logo-name">Bodega Colomé</div><div class="logo-meta">con sommelier</div>
       </div>
-      <div class="logo-card">
-        <div class="logo-frame"><img src="/logos/chacra.png" alt="Bodega Chacra" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">CH</span></div>
+      <div class="logo-card no-logo">
+        <div class="logo-frame"><span class="logo-fallback">CH</span></div>
         <div class="logo-name">Bodega Chacra</div><div class="logo-meta">sommelier externo</div>
       </div>
       <div class="logo-card">
@@ -202,8 +202,8 @@ const html = `
         <div class="logo-frame"><img src="/logos/zuccardi.png" alt="Zuccardi" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">Z</span></div>
         <div class="logo-name">Zuccardi</div>
       </div>
-      <div class="logo-card">
-        <div class="logo-frame"><img src="/logos/valledeuco.png" alt="Valle de Uco" loading="lazy" onerror="this.closest('.logo-card').classList.add('no-logo');this.remove()"><span class="logo-fallback">VU</span></div>
+      <div class="logo-card no-logo">
+        <div class="logo-frame"><span class="logo-fallback">VU</span></div>
         <div class="logo-name">Valle de Uco</div>
       </div>
       <div class="logo-card">
