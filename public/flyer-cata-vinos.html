@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer — Cata de Vinos Argentinos 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .flyer {
+      width: 794px;
+      height: 1123px;
+      background: #0e0a0a;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ───────── HERO (foto) ───────── */
+    .hero {
+      position: relative;
+      height: 600px;
+      flex-shrink: 0;
+      background-image: url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=1000&q=85');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8,6,6,0.55) 0%, rgba(8,6,6,0.05) 28%, rgba(8,6,6,0.15) 55%, rgba(8,6,6,0.75) 82%, #0e0a0a 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 34px 40px 26px;
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      color: #e8d8a8;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .hero-content .title-block {
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 76px;
+      line-height: 0.95;
+      color: #ffffff;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.55);
+      letter-spacing: -0.01em;
+    }
+    .title em {
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.55em;
+      color: #e8d8a8;
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      color: #c9a84c;
+      text-transform: uppercase;
+      margin-top: 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    /* ───────── PANEL inferior ───────── */
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 8px 56px 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quick-facts {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #f1e9d8;
+      letter-spacing: 0.03em;
+      padding-bottom: 18px;
+    }
+    .quick-facts .sep { color: #c9a84c; margin: 0 10px; }
+
+    /* Ticket badge */
+    .ticket-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .ticket {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      border: 1px solid rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.05);
+      padding: 14px 30px;
+      position: relative;
+    }
+    .ticket::before, .ticket::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0e0a0a;
+      border: 1px solid rgba(201,168,76,0.45);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .ticket::before { left: -6px; }
+    .ticket::after { right: -6px; }
+
+    .ticket-price-block {
+      text-align: center;
+      padding-right: 20px;
+      border-right: 1px dashed rgba(201,168,76,0.4);
+    }
+    .ticket-label {
+      font-family: 'Cinzel', serif;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: rgba(201,168,76,0.8);
+      text-transform: uppercase;
+    }
+    .ticket-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: #c9a84c;
+      line-height: 1.15;
+    }
+    .ticket-note {
+      max-width: 270px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.68);
+    }
+    .ticket-note strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+    .highlight-line {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .highlight-line .dot { color: #7a1c2e; margin: 0 8px; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+      margin-bottom: 26px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 17px;
+      color: rgba(241,227,189,0.85);
+      max-width: 480px;
+      margin: 0 auto 30px;
+      line-height: 1.5;
+    }
+
+    /* Sponsors */
+    .sponsors {
+      margin-top: auto;
+    }
+
+    .sponsor-block {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .sponsor-title {
+      font-family: 'Cinzel', serif;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+      color: rgba(201,168,76,0.65);
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .sponsor-row {
+      font-family: 'Cinzel', serif;
+      line-height: 1.9;
+    }
+    .sponsor-row.main {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #f1e3bd;
+    }
+    .sponsor-row.secondary {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.50);
+    }
+    .sponsor-row .sep {
+      color: rgba(201,168,76,0.55);
+      margin: 0 9px;
+      font-size: 0.7em;
+    }
+
+    .footer {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.30);
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .footer strong { color: rgba(201,168,76,0.55); font-weight: 600; }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .flyer { width: 210mm; height: 297mm; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <div class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Mar del Plata · 10 de Octubre 2026</div>
+      <div class="title-block">
+        <div class="title">CATA <em>de</em> VINOS</div>
+        <div class="subtitle">Vinos Argentinos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+
+    <div class="quick-facts">
+      Sábado 10 de Octubre <span class="sep">·</span> 19:30 a 01:00&nbsp;hs <span class="sep">·</span> Barrio Privado ARAS, Mar del Plata
+    </div>
+
+    <div class="ticket-wrap">
+      <div class="ticket">
+        <div class="ticket-price-block">
+          <div class="ticket-label">Entrada general</div>
+          <div class="ticket-price">$80.000</div>
+        </div>
+        <div class="ticket-note">Incluye copa de degustación y cata libre en los 16 stands. <strong>Depósito de copa $15.000</strong>, reintegrable al finalizar.</div>
+      </div>
+    </div>
+
+    <div class="highlight-line">16 Bodegas Boutique <span class="dot">•</span> Sector Gastronómico <span class="dot">•</span> Música en Vivo desde las 23&nbsp;hs</div>
+
+    <div class="divider"></div>
+
+    <div class="tagline">"Descubrí el vino argentino, bodega por bodega, en una misma noche."</div>
+
+    <div class="sponsors">
+      <div class="sponsor-block">
+        <div class="sponsor-title">Auspician este evento</div>
+        <div class="sponsor-row main">Catena Zapata <span class="sep">·</span> Trapiche <span class="sep">·</span> Luigi Bosca <span class="sep">·</span> Salentein <span class="sep">·</span> Zuccardi</div>
+      </div>
+      <div class="sponsor-block">
+        <div class="sponsor-title">Nos acompañan</div>
+        <div class="sponsor-row secondary">Terrazas de los Andes <span class="sep">·</span> Nieto Senetiner <span class="sep">·</span> Norton <span class="sep">·</span> Bodega Chacra <span class="sep">·</span> El Enemigo Wines <span class="sep">·</span> Bodega Colomé <span class="sep">·</span> Finca Las Moras <span class="sep">·</span> Bodega Noemía <span class="sep">·</span> Durigutti Family Winemakers <span class="sep">·</span> Lopez <span class="sep">·</span> Valley of Uco</div>
+      </div>
+    </div>
+
+    <div class="footer"><strong>L'ECOLE</strong> — Carrera Gastronómica &nbsp;|&nbsp; Cupos limitados, entrada anticipada recomendada</div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
