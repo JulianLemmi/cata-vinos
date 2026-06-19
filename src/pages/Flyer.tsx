@@ -4,7 +4,7 @@ import { Printer, ExternalLink } from 'lucide-react'
 const FLYER_W = 794
 const FLYER_H = 1123
 // Versión del afiche: subir este número al editar el flyer fuerza recarga (evita caché vieja)
-const FLYER_SRC = '/flyer-cata-vinos.html?v=5'
+const FLYER_SRC = '/flyer-cata-vinos.html?v=6'
 
 export function Flyer() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
